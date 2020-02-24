@@ -65,7 +65,7 @@ router.route('/issues/update/:id').post((req, res) => {
       .catch(err => res.status(500).send('Update failed'))
   });
 });
-router.route('/issues/delete/:id').post((req, res) => {
+router.route('/issues/delete/:id').get((req, res) => {
   const { id } = req.params;
   Issue.findByIdAndRemove({_id: id}, (err, issue) => {
     if (err) {
